@@ -2,7 +2,7 @@ console.log('***** Music Collection *****');
 // Safe Zone -- Write code below this line
 //Create an empty array named myCollection *
 let myCollection = [];
-let publicEnemyCollection = [];
+//let publicEnemyCollection = [];
 //Create a function named addToCollection *
 function addToCollection(collection, title, artist, yearPublished) {
   let record = {
@@ -23,32 +23,35 @@ addToCollection(
   '1995'
 );
 addToCollection(myCollection, `Don't Believe the Truth`, 'Oasis', '2005');
-addToCollection(
-  publicEnemyCollection,
-  'Yo! Bum Rush the Show',
-  'Public Enemy',
-  '1987'
-);
-addToCollection(
-  publicEnemyCollection,
-  'It Takes a Nation of Millions to Hold Us Back',
-  'Public Enemy',
-  '1988'
-);
-addToCollection(myCollection, 'Dig Out Your Soul', 'Oasis', 2008);
+// addToCollection(
+//   publicEnemyCollection,
+//   'Yo! Bum Rush the Show',
+//   'Public Enemy',
+//   '1987'
+// );
+//addToCollection(
+//   publicEnemyCollection,
+//   'It Takes a Nation of Millions to Hold Us Back',
+//   'Public Enemy',
+//   '1988'
+// );
+addToCollection(myCollection, 'Dig Out Your Soul', 'Oasis', '2008');
 addToCollection(myCollection, 'Be Here Now', 'Oasis', 1996);
 addToCollection(
   myCollection,
   'Standing on the Shoulder of Giants',
   'Oasis',
-  2000
+  '2000'
 );
-addToCollection(myCollection, 'Urban Hymns', 'The Verve', 1997);
-addToCollection(myCollection, 'Siamese Dream', 'The Smashing Pumpkins', 1993);
-addToCollection(myCollection, 'Fantastic Plant', 'Failure', 1996);
-addToCollection(publicEnemyCollection, 'Fear of a Black Planet', '1990');
+addToCollection(myCollection, 'Urban Hymns', 'The Verve', '1997');
+addToCollection(myCollection, 'Siamese Dream', 'The Smashing Pumpkins', '1993');
+addToCollection(myCollection, 'Fantastic Plant', 'Failure', '1996');
+addToCollection(myCollection, 'De Stijl', 'The White Stripes', '2000');
+addToCollection(myCollection, 'The White Stripes', 'The White Stripes', '1999');
+addToCollection(myCollection, 'White Blood Cells', 'The White Stripes', '2001');
+//addToCollection(publicEnemyCollection, 'Fear of a Black Planet', '1990');
 console.log(myCollection);
-console.log(publicEnemyCollection);
+//console.log(publicEnemyCollection);
 
 //Create a function named showCollection
 function showCollection(collection) {
@@ -69,12 +72,48 @@ function findByArtist(collection, artist) {
       matches.push(item);
     }
   }
-  console.log(matches);
+  //console.log('test');
   return matches;
 }
 
 console.log(findByArtist(myCollection, 'Oasis'));
 console.log(findByArtist(myCollection, 'The Verve'));
+
+//Create a function called search that will allow for searching by artist and yearPublished.
+// function search(collection, artist, yearPublished) {
+//   let searchResults = [];
+//   for (const item of collection) {
+//     if (item.artist === artist && item.yearPublished === yearPublished) {
+//       searchResults.push(item);
+//     }
+//   }
+//   console.log(searchResults);
+//   return searchResults;
+// }
+
+// console.log(search(myCollection, 'Oasis', 1996));
+// console.log(search(myCollection, 'Oasis', '1995'));
+
+function search(collection, searchCriteria) {
+  let searchResults = [];
+  for (const item of collection) {
+    if (
+      item.artist === searchCriteria.artist &&
+      item.yearPublished === searchCriteria.yearPublished
+    ) {
+      searchResults.push(item.artist, item.yearPublished);
+    }
+  }
+  console.log(searchResults);
+  return searchResults;
+}
+
+//let criteria = { artist: 'Oasis', yearPublished: '1995' };
+let criteria = { artist: 'The White Stripes', yearPublished: '2001' };
+//search(myCollection, criteria);
+console.log(search(myCollection, criteria));
+//console.log(searchResults);
+
 //// template literals ${}
 //used to add js variable to a string
 // let petFirstName = 'Scout';
